@@ -50,7 +50,7 @@
             }
 
             > section {
-                
+
                 > h2 {
                     font-size: 1.8em;
                     margin: 0.5em 0 0.2em;
@@ -76,7 +76,7 @@
                     }
 
                     &.location, &.separator, &.type {
-                        color: #3D5668
+                        color: lighten($lawdawg-light-bg, 15%);
                     }
                 }
 
@@ -232,7 +232,7 @@
                     }
                 }
 
-                
+
                 // Linked In Skills and expertise:
                 textarea {
                     width: 100%;
