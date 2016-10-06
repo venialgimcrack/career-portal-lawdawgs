@@ -51,20 +51,7 @@ angular.module('CareerPortal', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ui.router
     .service('MobileDetection', MobileDetection)
     .service('VerifyLI', VerifyLI)
     .service('CacheService', CacheService);
-/*
-    .run(function ($rootScope) {
 
-        var _rootScope = $rootScope;
-
-        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-            _rootScope.locationSearch = $location.search();
-        });
-
-        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            $location.search(_rootScope.locationSearch);
-        });
-    });
-*/
 
 // Deferring the bootstrap to make sure we have loaded the config from app.json
 deferredBootstrapper.bootstrap({
