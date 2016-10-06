@@ -91,7 +91,7 @@ class JobDetailController {
         this.SearchService.helper.clearSearchParams();
         this.SearchService.searchParams.category.push(categoryID);
         this.SearchService.findJobs();
-        this.$location.path('/jobs' + (!!this.SharedData.evergreenDetailData ? '?evergreen=' + this.SharedData.evergreenDetailData.id : ''));
+        this.$location.path('/jobs');
     }
 }
 
