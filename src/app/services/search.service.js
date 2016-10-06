@@ -1,10 +1,19 @@
 class SearchService {
-    constructor($http, configuration, $q, SharedData) {
+    constructor($http, configuration, $q, SharedData, $location) {
         'ngInject';
         this.$http = $http;
         this.configuration = configuration;
         this.$q = $q;
         this.SharedData = SharedData;
+
+        var searchObj = $location.search();
+
+        if (searchObj.category) {
+            // The default category is the ID of a category in Bullhorn. Its not clear at this point how a client would
+            // know what the potential category IDs are. Perhaps they'd be supplied to them? If not, we might need to
+            // change this to support receiving the category by name.
+            this.searchParams.category.push(parseInt(searchObj.category, 10));
+        }
     }
 
     static get _() {

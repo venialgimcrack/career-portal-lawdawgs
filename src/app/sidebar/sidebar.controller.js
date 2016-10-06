@@ -104,6 +104,7 @@ class CareerPortalSidebarController {
     }
 
     updateFilterCounts() {
+        /*
         var controller = this;
 
         if (this.locations) {
@@ -123,6 +124,10 @@ class CareerPortalSidebarController {
                 });
             });
         }
+        */
+
+        this.SearchService.getCountByLocation(this.setLocations());
+        this.SearchService.getCountByCategory(this.setCategories());
     }
 
     updateFilterCountsAnonymous() {

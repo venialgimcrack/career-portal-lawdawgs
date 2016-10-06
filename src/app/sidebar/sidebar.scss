@@ -195,7 +195,8 @@ aside {
                     &:checked {
                         background: $primary;
                         & + label {
-                            color: $primary;
+                            color: darken($primary, 10%);
+                            font-weight: bold;
                         }
                     }
                 }

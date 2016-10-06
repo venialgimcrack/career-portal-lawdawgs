@@ -45,7 +45,7 @@ gulp.task('config:app', function () {
         console.log(chalk.red('Argument for corpToken not found, output might not be setup correctly. Supply the corpToken via the --corp flag.'));
     }
 
-    if (argv.sl) {
+    if (argv.sl !== undefined) {
         appConfig.service.swimlane = argv.sl;
     } else {
         console.log(chalk.red('Argument for swimlane not found, output might not be setup correctly. Supply the swimlane via the --sl flag.'));
