@@ -3,13 +3,21 @@
 // bower:scss
 // endbower
 
+$lawdawg-green: #2b5235;
+$lawdawg-light-bg: #929292;
+$lawdawg-dark-bg: #535557;
+
 $white: #FFFFFF;
-$primary: #5198DE;
-$secondary: #ACC72E;
+//$primary: #5198DE;
+$primary: $lawdawg-green;
+//$secondary: #ACC72E;
+$secondary: lighten($lawdawg-green, 20%);
 $light-bg: #F4F4F4;
 $dark-bg: #2E2F30;
-$header-bg: $primary;
-$sidebar-header-bg: #252728;
+//$header-bg: $primary;
+$header-bg: $lawdawg-green;
+//$sidebar-header-bg: #252728;
+$sidebar-header-bg: $lawdawg-green;
 $toggle-active: #fff;
 $cancel: darken($light-bg, 15%);
 $error: #da4453;

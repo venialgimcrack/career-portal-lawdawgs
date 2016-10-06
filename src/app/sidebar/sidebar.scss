@@ -5,7 +5,7 @@ aside {
     position: absolute;
     top: 0;
     left: -80%;
-    background-color: $dark-bg;
+    background-color: $lawdawg-light-bg;
     color: $white;
     flex-direction: column;
     transition: all 0.2s ease-in-out;
@@ -47,7 +47,7 @@ aside {
             > button {
                 background: transparent;
                 border: none;
-                color: lighten($dark-bg, 45%);
+                color: lighten($lawdawg-dark-bg, 45%);
                 padding: 5px;
                 font-size: 1.8em;
                 cursor: pointer;
@@ -80,7 +80,7 @@ aside {
                 top: 4px;
                 left: 10px;
                 font-size: 1.5em;
-                color: #505255;
+                color: $light-bg;
             }
 
             > button.clear-filter {
@@ -94,13 +94,13 @@ aside {
             }
 
             > input.search {
-                background-color: $sidebar-header-bg !important;
+                background-color: $lawdawg-dark-bg !important;
                 border-radius: 50px;
                 border-color: transparent;
                 padding: 0.5em 2.5em;
                 width: 100%;
                 font-size: 1em;
-                color: lighten($dark-bg, 75%);
+                color: $light-bg;
                 box-sizing: border-box;
 
                 &:focus {
@@ -129,7 +129,7 @@ aside {
                 margin-bottom: 1em;
 
                 > h4 {
-                    color: lighten($dark-bg, 35%);
+                    color: lighten($lawdawg-dark-bg, 35%);
                     font-size: 1.1em;
                     font-weight: 500;
                     display: inline-block;
@@ -151,15 +151,15 @@ aside {
                 text-align: center;
                 margin-top: 1em;
                 cursor: pointer;
-                color: lighten($dark-bg, 50%);
+                color: lighten($lawdawg-dark-bg, 50%);
             }
 
             > .filter-item {
                 width: 100%;
                 padding-bottom: 5px;
                 padding-top: 8px;
-                border-bottom: 1px solid lighten($dark-bg, 5%);
-                color: lighten($dark-bg, 65%);
+                border-bottom: 1px solid lighten($lawdawg-dark-bg, 5%);
+                color: lighten($lawdawg-dark-bg, 65%);
 
                 display: flex;
                 flex-direction: row;
@@ -179,7 +179,7 @@ aside {
 
                 > input[type="checkbox"] {
                     cursor: pointer;
-                    background: lighten($dark-bg, 15%);
+                    background-color: $lawdawg-dark-bg;
                     border: none;
                     height: 15px;
                     width: 15px;
@@ -204,7 +204,7 @@ aside {
 
         > section.credits {
             margin-top: 4em;
-            color: lighten($dark-bg, 30%);
+            color: lighten($lawdawg-dark-bg, 30%);
 
             span.powered-by {
                 font-size: 1em;
@@ -234,7 +234,7 @@ aside {
         &::-webkit-scrollbar-track {
             -webkit-box-shadow: none;
             border-radius: 0;
-            background-color: $dark-bg;
+            background-color: $lawdawg-dark-bg;
         }
 
         &::-webkit-scrollbar-thumb {
@@ -279,7 +279,7 @@ aside {
 
         &:hover {
             cursor: pointer;
-            background: lighten($dark-bg, 3%);
+            background: lighten($lawdawg-dark-bg, 3%);
         }
     }
 }

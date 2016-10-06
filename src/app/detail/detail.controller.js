@@ -12,6 +12,7 @@ class JobDetailController {
         this.ShareService = ShareService;
         this.SearchService = SearchService;
         this.job = job;
+        this.evergreen = evergreen;
         this.configuration = configuration;
 
         // Variables

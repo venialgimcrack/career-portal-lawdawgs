@@ -44,7 +44,7 @@ header.app {
         line-height: $header-height * 0.5;
         margin-left: 70%;
         border: none;
-        background: $secondary;
+        background: lighten($lawdawg-green, 20%);
         color: $white;
         margin-top: 0.5em;
         padding: 0.5em;
@@ -61,7 +61,8 @@ header.app {
         }
 
         &.disabled {
-            background-color: lightgray;
+            background-color: lighten($lawdawg-light-bg, 15%);
+            cursor: default;
         }
     }
 

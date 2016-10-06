@@ -262,7 +262,7 @@ class CareerPortalModalController {
         if (this.SharedData.evergreenApply && !!this.SharedData.evergreenDetailData) {
             return this.SharedData.evergreenDetailData;
         } else {
-            return this.SearchService.currentJobDetailData;
+            return this.SearchService.currentDetailData;
         }
     }
 
@@ -279,12 +279,13 @@ class CareerPortalModalController {
         this.showForm = false;
         // Set the job id in session storage to make sure they can't apply to the same one during the same session
         var alreadyAppliedJobs = sessionStorage.getItem(this.APPLIED_JOBS_KEY);
+        var jobDetailData = this.getJobDetailData();
         if (alreadyAppliedJobs) {
             var alreadyAppliedJobsArray = JSON.parse(alreadyAppliedJobs);
-            alreadyAppliedJobsArray.push(this.getJobDetailData().id);
+            alreadyAppliedJobsArray.push(jobDetailData.id);
             sessionStorage.setItem(this.APPLIED_JOBS_KEY, JSON.stringify(alreadyAppliedJobsArray));
         } else {
-            sessionStorage.setItem(this.APPLIED_JOBS_KEY, JSON.stringify([this.getJobDetailData().id]));
+            sessionStorage.setItem(this.APPLIED_JOBS_KEY, JSON.stringify([jobDetailData.id]));
         }
         // Send a modal success message to update other views
         this.$rootScope.$broadcast('ModalSuccess');
@@ -294,11 +295,12 @@ class CareerPortalModalController {
         var isFileValid = false,
             resumeInfo = this.ApplyService.form.resumeInfo,
             resumeText = this.linkedInData.header + this.linkedInData.resume + this.linkedInData.footer,
-            controller;
+            controller,
+            jobDetailData = this.getJobDetailData();
 
         if (!this.hasAttemptedLIApply && this.email) {
             // Send email
-            this.$window.open(this.ShareService.sendEmailLink(this.getJobDetailData(), this.email), '_self');
+            this.$window.open(this.ShareService.sendEmailLink(jobDetailData, this.email), '_self');
             this.email = '';
             this.closeModal();
         } else if (this.hasAttemptedLIApply && resumeText) {
@@ -317,7 +319,7 @@ class CareerPortalModalController {
         if (applyForm.$valid && isFileValid) {
             controller = this;
             controller.isSubmitting = true;
-            this.ApplyService.submit(this.getJobDetailData().id, function () {
+            this.ApplyService.submit(jobDetailData.id, function () {
                 controller.applySuccess();
                 controller.isSubmitting = false;
             }, function () {
