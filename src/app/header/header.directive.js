@@ -26,6 +26,10 @@ class CareerPortalHeaderController {
         this.$location.path('/jobs');
     }
 
+    isEvergreenDisabled() {
+        return !this.hasEvergreen() || this.isEvergreen();
+    }
+
     isEvergreen() {
 
         if (this.hasEvergreen() && !this.SharedData.evergreenApply) {
