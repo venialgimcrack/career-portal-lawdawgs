@@ -66,7 +66,7 @@ class JobDetailController {
 
     applyModal() {
         this.SharedData.modalState = 'open';
-        this.SharedData.evergreenApply = false;
+        this.SharedData.evergreenApply = (!!this.SharedData.evergreenDetailData && this.SharedData.evergreenDetailData.id === this.SearchService.currentDetailData.id);
     }
 
     loadRelatedJobs() {

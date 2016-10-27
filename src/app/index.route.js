@@ -17,7 +17,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
                 deferred.resolve(evergreenJob);
 
             }, function () {
-                $location.path('/jobs');
+                deferred.resolve(null);
             });
 
         } else {
@@ -43,7 +43,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
             controller: 'JobDetailController',
             controllerAs: 'detail',
             resolve: {
-                job: function (SearchService, $stateParams, $q, $location) {
+                job: function (SearchService, $stateParams, $q) {
                     var deferred = $q.defer();
 
                     SearchService.loadJobData($stateParams.id, function (job) {
@@ -53,7 +53,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
                         SearchService.currentDetailData = job;
                         deferred.resolve(job);
                     }, function () {
-                        $location.path('/jobs');
+                        deferred.resolve(null);
                     });
 
                     return deferred.promise;

@@ -9,6 +9,8 @@ class JobListController {
         this.SharedData.viewState = 'overview-closed';
 
         this.evergreen = evergreen;
+
+        this.SearchService.currentDetailData = null;
     }
 
     loadMoreData() {

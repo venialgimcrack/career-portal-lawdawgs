@@ -9,9 +9,7 @@ class SearchService {
         var searchObj = $location.search();
 
         if (searchObj.category) {
-            // The default category is the ID of a category in Bullhorn. Its not clear at this point how a client would
-            // know what the potential category IDs are. Perhaps they'd be supplied to them? If not, we might need to
-            // change this to support receiving the category by name.
+            // ID of a category in Bullhorn
             this.searchParams.category.push(parseInt(searchObj.category, 10));
         }
     }

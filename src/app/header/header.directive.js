@@ -1,10 +1,12 @@
 class CareerPortalHeaderController {
-    constructor(configuration, $location, SharedData) {
+    constructor(configuration, $location, SharedData, SearchService) {
         'ngInject';
 
         this.SharedData = SharedData;
         this.$location = $location;
         this.configuration = configuration;
+
+        this.SearchService = SearchService;
     }
 
     toggleFilters() {
@@ -22,6 +24,17 @@ class CareerPortalHeaderController {
 
     goBack() {
         this.$location.path('/jobs');
+    }
+
+    isEvergreen() {
+
+        if (this.hasEvergreen() && !this.SharedData.evergreenApply) {
+            return this.SearchService.currentDetailData !== null &&
+                this.SearchService.currentDetailData.id === this.SharedData.evergreenDetailData.id;
+
+        } else {
+            return false;
+        }
     }
 
     hasEvergreen() {

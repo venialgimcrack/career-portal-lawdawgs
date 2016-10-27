@@ -60,6 +60,8 @@ class CareerPortalModalController {
         // Clear the errors if we have the form
         if (applyForm) {
             applyForm.$setPristine();
+
+            this.SharedData.evergreenApply = false;
         }
     }
 
