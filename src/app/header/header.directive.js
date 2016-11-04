@@ -45,6 +45,10 @@ class CareerPortalHeaderController {
         return this.SharedData.evergreenDetailData !== null;
     }
 
+    isEvergreenVisible() {
+        return !this.SharedData.hideEvergreenButton;
+    }
+
     applyModal() {
         if (this.hasEvergreen()) {
             this.SharedData.modalState = 'open';

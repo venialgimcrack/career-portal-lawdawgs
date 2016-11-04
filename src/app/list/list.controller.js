@@ -11,6 +11,8 @@ class JobListController {
         this.evergreen = evergreen;
 
         this.SearchService.currentDetailData = null;
+
+        this.SharedData.hideEvergreenButton = false;
     }
 
     loadMoreData() {

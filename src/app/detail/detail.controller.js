@@ -23,6 +23,8 @@ class JobDetailController {
         this.APPLIED_JOBS_KEY = APPLIED_JOBS_KEY;
         this.alreadyApplied = false;
 
+        this.SharedData.hideEvergreenButton = true;
+
         // Init functions
         this.loadRelatedJobs();
 

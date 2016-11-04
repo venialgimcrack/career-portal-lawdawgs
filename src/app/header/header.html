@@ -10,6 +10,6 @@
 
     <label>{{::header.configuration.companyName}}</label>
 
-    <button class="apply" data-ng-click="header.applyModal()" data-ng-disabled="header.isEvergreenDisabled()" data-ng-class="{ 'disabled': header.isEvergreenDisabled() }">{{ 'common.generalResume' | i18n}}</button>
+    <button class="apply" data-ng-click="header.applyModal()" data-ng-show="header.isEvergreenVisible()" data-ng-disabled="header.isEvergreenDisabled()" data-ng-class="{ 'disabled': header.isEvergreenDisabled() }">{{ 'common.generalResume' | i18n}}</button>
 
 </header>
