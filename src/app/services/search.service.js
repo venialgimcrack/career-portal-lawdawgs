@@ -23,7 +23,7 @@ class SearchService {
     }
 
     static get _fields() {
-        return SearchService._.fields || (SearchService._.fields = 'id,title,publishedCategory(id,name),address(city,state),employmentType,dateLastPublished,publicDescription,isOpen,isPublic,isDeleted');
+        return SearchService._.fields || (SearchService._.fields = 'id,title,publishedCategory(id,name),address(city,state),employmentType,dateLastPublished,publicDescription,isOpen,isPublic,isDeleted,customText2');
     }
 
     static get _sort() {
@@ -199,7 +199,7 @@ class SearchService {
                     return prefix + '(' + values.join(join) + ')';
                 },
                 relatedJobs: (publishedCategoryID, idToExclude) => {
-                    var query = `(isOpen=true) AND publishedCategory.id=${publishedCategoryID}`;
+                    var query = `(isOpen=true) AND publishedCategory.id=${publishedCategoryID} AND (customText2='Yes')`;
 
                     if (idToExclude && parseInt(idToExclude) > 0) {
                         query += ' AND id <>' + idToExclude;
@@ -216,13 +216,13 @@ class SearchService {
                     return '?start=0&query=' + where + '&fields=id&count=' + SearchService._count;
                 },
                 assembleForQueryForIDs: (start, count) => {
-                    return '?where=' + this.requestParams.query(false) + '&fields=' + SearchService._fields + '&count=' + count + '&orderBy=' + SearchService._sort + '&start=' + start;
+                    return '?where=' + this.requestParams.query(false, 'customText2=\'Yes\'') + '&fields=' + SearchService._fields + '&count=' + count + '&orderBy=' + SearchService._sort + '&start=' + start;
                 },
                 assembleForGroupByWhereIDs: (fields, orderByFields, start, count, jobs) => {
                     return '?where=' + this.requestParams.whereIDs(jobs, false) + '&groupBy=' + fields + '&fields=' + fields + ',count(id)&count=' + count + '&orderBy=+' + orderByFields + ',-count.id&start=' + start;
                 },
                 assembleForSearchForIDs: (start, count, fields) => {
-                    return '?showTotalMatched=true&query=' + this.requestParams.query(true, undefined, fields) + '&fields=id&sort=id&count=' + count + '&start=' + start;
+                    return '?showTotalMatched=true&query=' + this.requestParams.query(true, 'customText2:Yes', fields) + '&fields=id&sort=id&count=' + count + '&start=' + start;
                 },
                 assembleForRelatedJobs: (publishedCategoryID, idToExclude) => {
                     return '?start=0&where=' + this.requestParams.relatedJobs(publishedCategoryID, idToExclude) + '&fields=' + SearchService._fields + '&sort=' + this.requestParams.sort() + '&count=' + this.configuration.maxRelatedJobs;
